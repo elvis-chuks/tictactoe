@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+    tr button{
+        width:70px;
+        height:70px;
+        font-size:50px;
+        text-align: center;
+        box-shadow:0px 2px 2px 1px rgba(24, 33, 45, 0.8);
+        border:none;
+        background-color:wheat;
+    }
+    body{
+        width:100%;
+    }
+    .wrap{
+        margin:auto;
+        width:350px;
+        margin-top:120px;
+        box-shadow:0px 5px 5px 3px rgba(24, 33, 45, 0.8);
+        border-radius: 10px;
+    }
+    .content{
+        padding: 40px;
+        padding-left:60px;
+    }
+    #win{
+        color:green;
+    }
+    /* #reload{
+        width:30%;
+    } */
+    [btn]{
+        width:230px;
+        height:30px;
+        background-color:green;
+        border:none;
+        color:white;
+        border-radius:5px;
+        box-shadow:0px 3px 3px 1px rgba(24, 33, 45, 0.8);
+    }
+    #reload{
+        padding-left:3px;
+        margin-top:10px;
+    }
+    </style>
+    <script src="tic2.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body onload="start()">
+    <div class="wrap">
+        <div class="content">
+            <h1>Tic Tac Toe</h1>
+            <p id="player"> Player 1 turn</p>
+            <!-- we need a 3x3 matrix table -->
+            <h2 id="win">Winner !!!!!!</h2>
+            <table>
+                <tr>
+                    <td><button onclick="btnfunc(this)" ></button></td>
+                    <td><button onclick="btnfunc(this)" ></button></td>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                </tr>
+                <tr>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                    <td><button onclick="btnfunc(this)"></button></td>
+                </tr>
+            </table>
+            <button btn id="reload" onclick="reload()">Reload</button>
+        </div>
+    </div>
+<script>
+    let appState = {};
+    function btnfunc(yu){
+        console.log('this is a1');
+        console.log(appState.current);
+        console.log(yu)
+        if ((appState.current == undefined) || appState.current == 'O'){
+            yu.textContent = 'X';
+            yu.style.color = "blue";
+            yu.disabled = true;
+            appState.current = 'X';
+        }else{
+            yu.textContent = 'O';
+            yu.style.color = "red";
+            yu.disabled = true;
+            appState.current = 'O';
+        }
+        let play = document.getElementById('player');
+        if((appState.player == undefined) || appState.player == '2'){
+            play.innerHTML = 'Player 1 turn';
+            appState.player = '1';
+        }else{
+            play.innerHTML = 'Player 2 turn';
+            appState.player = '2';
+        }
+    }
+    
+</script>
+</body>
+</html>
